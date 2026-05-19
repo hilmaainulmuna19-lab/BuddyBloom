@@ -1,0 +1,151 @@
+{
+  "entities": {
+    "user_profiles": {
+      "title": "User Profile",
+      "description": "User statistics and settings for gamification and habits.",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "displayName": { "type": "string" },
+        "level": { "type": "number" },
+        "exp": { "type": "number" },
+        "characterId": { "type": "string" },
+        "waterReminder": { "type": "boolean" },
+        "mealReminder": { "type": "boolean" },
+        "dailyQuote": { "type": "string" },
+        "theme": { "type": "string" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["uid", "level", "exp"]
+    },
+    "habits": {
+      "title": "Habit",
+      "description": "Definition of a habit a user wants to track.",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "name": { "type": "string" },
+        "icon": { "type": "string" },
+        "frequency": { "type": "string", "enum": ["daily", "weekly", "monthly"] },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["userId", "name", "frequency"]
+    },
+    "habit_logs": {
+      "title": "Habit Log",
+      "description": "Log of a habit completion.",
+      "type": "object",
+      "properties": {
+        "habitId": { "type": "string" },
+        "userId": { "type": "string" },
+        "date": { "type": "string" },
+        "completed": { "type": "boolean" },
+        "timestamp": { "type": "string", "format": "date-time" }
+      },
+      "required": ["habitId", "userId", "date", "completed"]
+    },
+    "transactions": {
+      "title": "Transaction",
+      "description": "Income or expense record.",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "type": { "type": "string", "enum": ["income", "expense"] },
+        "amount": { "type": "number" },
+        "category": { "type": "string" },
+        "note": { "type": "string" },
+        "date": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["userId", "type", "amount", "category", "date"]
+    },
+    "goals": {
+      "title": "Financial Goal",
+      "description": "Target savings or investment goal.",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "name": { "type": "string" },
+        "targetAmount": { "type": "number" },
+        "currentAmount": { "type": "number" },
+        "deadline": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["userId", "name", "targetAmount", "currentAmount"]
+    },
+    "tasks": {
+      "title": "Daily Task",
+      "description": "General tasks/to-do list for the day.",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "title": { "type": "string" },
+        "category": { "type": "string", "enum": ["Work", "Personal", "Errands"] },
+        "completed": { "type": "boolean" },
+        "date": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["userId", "title", "category", "completed", "date"]
+    },
+    "journals": {
+      "title": "Journal",
+      "description": "Daily journal entries for the user",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "content": { "type": "string" },
+        "mood": { "type": "string", "enum": ["happy", "sad", "flat", "angry", "love"] },
+        "date": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["userId", "content", "mood", "date"]
+    },
+    "rewards": {
+      "title": "Reward",
+      "description": "Rewards or break types users can claim.",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "name": { "type": "string" },
+        "cost": { "type": "number" },
+        "isClaimed": { "type": "boolean" },
+        "claimedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["userId", "name", "cost", "isClaimed"]
+    }
+  },
+  "firestore": {
+    "/user_profiles/{userId}": {
+      "schema": "user_profiles",
+      "description": "User profile document."
+    },
+    "/habits/{habitId}": {
+      "schema": "habits",
+      "description": "User habits."
+    },
+    "/habit_logs/{logId}": {
+      "schema": "habit_logs",
+      "description": "Daily habit logs."
+    },
+    "/transactions/{transactionId}": {
+      "schema": "transactions",
+      "description": "User income and expenses."
+    },
+    "/goals/{goalId}": {
+      "schema": "goals",
+      "description": "Financial goals."
+    },
+    "/tasks/{taskId}": {
+      "schema": "tasks",
+      "description": "Daily tasks."
+    },
+    "/journals/{journalId}": {
+      "schema": "journals",
+      "description": "Daily journal entries for mood tracking and reflection."
+    },
+    "/rewards/{rewardId}": {
+      "schema": "rewards",
+      "description": "Redeemable rewards."
+    }
+  }
+}

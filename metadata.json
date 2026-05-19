@@ -1,0 +1,6 @@
+{
+  "name": "KawanKecil - Life & Budget Buddy",
+  "description": "An aesthetic, cute and personal assistant for time management, habits, and financial goals with AI-powered coaching.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

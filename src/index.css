@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&family=Fredoka:wght@400;500;600;700&family=Caveat:wght@400..700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Nunito", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Fredoka", sans-serif;
+  --font-heading: "Fredoka", sans-serif;
+  --font-quote: "Fredoka", sans-serif;
+  --font-cute: "Fredoka", cursive;
+  --font-serif: "Caveat", cursive;
+  --font-aesthetic: "Nunito", sans-serif;
+  --font-creative: "Fredoka", sans-serif;
+
+  --color-natural-bg: #F0F4F8;
+  --color-natural-text: #4A5568;
+  --color-natural-purple: #EBF8FF;
+  --color-natural-purple-text: #63B3ED;
+  --color-natural-teal: #F0FFF4;
+  --color-natural-teal-accent: #BEE3F8;
+  --color-natural-teal-text: #4299E1;
+  --color-natural-pink: #FFF5F7;
+  --color-natural-pink-text: #667EEA;
+  --color-natural-yellow: #FED7E2;
+  --color-natural-peach: #F7FAFC;
+  --color-natural-border: #E2E8F0;
+}
+
+@layer utilities {
+  .soft-gradient-blue {
+    background: linear-gradient(135deg, #EBF8FF 0%, #BEE3F8 100%);
+  }
+  .soft-gradient-peach {
+    background: linear-gradient(135deg, #FFF5F7 0%, #FED7E2 100%);
+  }
+  .soft-gradient-teal {
+    background: linear-gradient(135deg, #F0FFF4 0%, #E6FFFA 100%);
+  }
+  .doft-shadow {
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-natural-bg text-natural-text font-sans;
+  }
+  h1, h2, h3, h4 {
+    @apply font-display font-semibold;
+  }
+}
+
+.mascot-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+.glass-card {
+  @apply bg-white rounded-[32px] border border-natural-border shadow-sm;
+}
+
