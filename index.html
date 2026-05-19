@@ -6,6 +6,20 @@
     <title>My Google AI Studio App</title>
   </head>
   <body>
+    <script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyD6sED4WxINMZc6OWEyFhUqplIVRGhDGxc",
+    authDomain: "buddybloom-e8f4f.firebaseapp.com",
+    projectId: "buddybloom-e8f4f",
+    storageBucket: "buddybloom-e8f4f.firebasestorage.app",
+    messagingSenderId: "1079055238795",
+    appId: "1:1079055238795:web:852a946d6ccb22ac1f768e"
+  };
+
+  const app = initializeApp(firebaseConfig);
+</script>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
